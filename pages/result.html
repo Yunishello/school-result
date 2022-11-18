@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Report | Student Result</title>
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css" />
+    <script src="../dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../dist/js/script.js"></script>
+    <script src="../dist/js/logic.js"></script>
+    <link rel="stylesheet" href="../dist/css/styles.css">
+  </head>
+  <body onload="handleOnLoad(true)">
+    <header
+      class="dashboard navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow d-print-none"
+    >
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="dashboard.html">Back</a>
+      <button
+        class="navbar-toggler position-absolute d-md-none collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sidebarMenu"
+        aria-controls="sidebarMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-nav">
+        <div class="nav-item text-nowrap">
+          <a class="nav-link px-3" onclick="handleLogout()" href="#">Logout</a>
+        </div>
+      </div>
+    </header>
+    <main class="my-5 mx-3">
+      <div class="align-items-center">
+        <div class="text-center">
+          <img src="" width="70" height="70" alt="" />
+          <h2 class="text-uppercase">
+            <span class="schoolName text-capitalize"></span>
+          </h2>
+          <h6>
+            <i class="fa fa-world"></i>
+            <b><span class="address text-capitalize"></span></b>
+          </h6>
+          <h6>
+            <i class="fa fa-phone"></i> <b><span class="phone1"></span></b>
+            <b><span class="phone2"></span></b>
+          </h6>
+        </div>
+        <div class="my-5">
+          <table class="table body table-bordered px-5">
+            <tr>
+              <th colspan="7">
+                <i class="fa fa-user"></i>
+                <span class="studentName text-uppercase"></span>
+              </th>
+              <th colspan="2">
+                <div class="text-uppercase">Class: <span class="class text-uppercase">SS 2</span></div>
+              </th>
+              <th colspan="2">
+                SESSION: <span class="session">1444 (2021/2022)</span>
+              </th>
+              <th colspan="3">
+                <div class="text-uppercase">ADM NO: <span class="admno">ICI/ADM/1442/1405</span></div>
+              </th>
+              <th colspan="2">SEX: <span class="gender">F</span></th>
+              <th colspan="3">AGE: <span class="age"></span></th>
+            </tr>
+            <tr>
+              <td colspan="7">
+                <i class="fa fa-user"></i
+                ><b
+                  >Sport House:
+                  <span class="sportHouse text-uppercase"
+                    >civil servant</span
+                  ></b
+                >
+              </td>
+              <td colspan="5">
+                <b
+                  >Next Term Begins:
+                  <span class="begins"> 9th May,2022</span></b
+                >
+              </td>
+              <td colspan="3">
+                <b>Class Population: <span class="population"></span></b>
+              </td>
+              <td colspan="3">
+                <b>Class Attendance: <span class="attend">unset</span> </b>
+              </td>
+            </tr>
+            <tr class="text-center">
+              <th colspan="18" class="text-uppercase">
+                <span class="acterm"></span> term academic reports
+              </th>
+            </tr>
+            <tr class="text-center">
+              <td rowspan="2" colspan="5">
+                <i width="70" height="70" class="fa fa-user text-center"></i>
+              </td>
+              <th colspan="13" class="text-center text-capitalize">
+                summary of the <span class="summary"></span> work
+              </th>
+            </tr>
+            <tr class="text-center">
+              <th colspan="2">First C.A</th>
+              <th colspan="2">Second C.A</th>
+              <th colspan="2">Examination</th>
+              <th colspan="2">Total Score</th>
+              <th colspan="3">Class Statistics</th>
+              <th colspan="2">Inference</th>
+            </tr>
+            <tr class="text-center">
+              <th colspan="5">subjects</th>
+              <td>obtainable (20%)</td>
+              <td>obtained mark(%)</td>
+              <td>obtainable (20%)</td>
+              <td>obtained mark(%)</td>
+              <td>obtainable (60%)</td>
+              <td>obtained mark(%)</td>
+              <td>obtainable (100%)</td>
+              <td>obtained mark(%)</td>
+              <td>highest score</td>
+              <td>lowest score</td>
+              <td>Position</td>
+              <td>Grade</td>
+              <td>remark</td>
+            </tr>
+            <tbody class="scores text-center text-capitalize"></tbody>
+            <tr>
+              <th colspan="7"></th>
+              <th colspan="6"></th>
+              <th colspan="5"></th>
+            </tr>
+            <tbody>
+              <td colspan="18" class="text-center">
+                <strong>Skills(Psychomotor)</strong>
+              </td>
+              <tr>
+                <td colspan="6">Fluency [ <span class="fluency">3</span> ]</td>
+                <td colspan="3">
+                  Handling of Tools [ <span class="tools">3</span> ]
+                </td>
+                <td colspan="3">
+                  Handwriting [ <span class="handwriting">3</span> ]
+                </td>
+                <td colspan="3">
+                  Practical Skills [ <span class="practical">3</span> ]
+                </td>
+                <td colspan="3">
+                  Sports & Gymnastic [ <span class="sport">3</span> ]
+                </td>
+              </tr>
+              <tbody class="text-center">
+                <td colspan="18">
+                  <strong>Behavior(Affective)</strong>
+                </td>
+              </tbody>
+              <tr>
+                <td colspan="6">
+                  Attentiveness [ <span class="attentive">4</span> ]
+                </td>
+                <td colspan="3">
+                  Neatness [ <span class="neatness">4</span> ]
+                </td>
+                <td colspan="3">
+                  Obedience [ <span class="obedience">4</span> ]
+                </td>
+                <td colspan="3">
+                  Punctuality [ <span class="punctuality">4</span> ]
+                </td>
+                <td colspan="3">
+                  Self Control [ <span class="control">4</span> ]
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr class="text-center">
+                <td colspan="18">
+                  <strong>Remarks</strong>
+                </td>
+              </tr>
+              <tr>
+                <th colspan="9">Class Teacher Remark</th>
+                <td colspan="9" class="teacherRemark">Handling of Tools</td>
+              </tr>
+              <tr>
+                <th colspan="9">Principal's Remark</th>
+                <td colspan="9" class="principalRemark">Handling of Tools</td>
+              </tr>
+
+              <tr>
+                <th colspan="9">Principal's sign. & Date :</th>
+                <td colspan="9">Handling of Tools</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 text-end">
+              <span
+                >Key Rating: [4] = Excellent; [3] = Very Good; [2] = Good; [1] =
+                Fair;</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <button
+              class="btn btn-primary float-end d-print-none"
+              onclick="window.print()"
+            >
+              Print
+            </button>
+          </div>
+          <div class="col-md-6"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

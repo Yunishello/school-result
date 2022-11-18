@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School | Report</title>
+    <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
+    <script src="./dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="./dist/js/script.js" defer></script>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <section class="row my-5">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="shadow p-5 rounded">
+                    <div class="card-body">
+                        <form class="form-group" onsubmit="handleSubmit()">
+                            <label><strong>Email:</strong></label>
+                            <input type="email" class="form-control email" autofocus placeholder="Enter Email">
+                            <br>
+                            <label><strong>Password:</strong></label>
+                            <input type="password" class="form-control password" placeholder="Enter Password" minlength="8">
+                            <br>
+                            <button class="btn btn-outline-success">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </section>
+    </main>
+
+    
+</body>
+</html>

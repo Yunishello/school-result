@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Report | Student Marks</title>
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css" />
+    <script src="../dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../dist/js/script.js"></script>
+  </head>
+  <body onload="handleOnLoad(false)" class="dashboard">
+    <header
+      class="dashboard navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
+    >
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">SMS</a>
+      <button
+        class="navbar-toggler position-absolute d-md-none collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sidebarMenu"
+        aria-controls="sidebarMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-nav">
+        <div class="nav-item text-nowrap">
+          <a class="nav-link px-3" onclick="handleLogout()" href="#">Logout</a>
+        </div>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse show"
+        >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-light"
+                  aria-current="page"
+                  href="dashboard.html"
+                >
+                  <span data-feather="home"></span>
+                  Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./studdetails.html">
+                  <span data-feather="file"></span>
+                  Student Record
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">
+                  <span data-feather="shopping-cart"></span>
+                  Student Marks
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./physkills.html">
+                  <span data-feather="users"></span>
+                  Physical Skills
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./remark.html">
+                  <span data-feather="bar-chart-2"></span>
+                  General Remark
+                </a>
+              </li>
+            </ul>
+
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+            >
+              <span>Profile?</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-light"
+                  href="register.html"
+                >
+                  <span data-feather="file-text"></span>
+                  Changes profile
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-light"
+                  onclick="handleLogout()"
+                  href="#"
+                >
+                  <span data-feather="file-text"></span>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main class="col-md-9 container mt-5">
+          <div class="alert alert-success text-center message">Student Record Saved!!!</div>
+          <section class="shadow p-5 mb-5">
+            <!-- Form Beginning -->
+            <form onsubmit="handleMarksSubmit()" class="card-body">
+              <input type="hidden" name="" class="isMessage" value="true" />
+              <h3 class="">Student Marks</h3>
+              <div class="bg-dark pt-1 mb-4"></div>
+              <div>
+                <!-- First Subject Scores -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter First Subject:</b></label>
+                      <input
+                        class="form-control firstsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter First Subject Here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control firstsubjectca1"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control firstsubjectca2"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control firstsubjectexam"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter examination here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control firsthigh"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for first subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control firstlow"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for first subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control firstposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Second Subject Scores -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter Second Subject:</b></label>
+                      <input
+                        class="form-control secondsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter second subject here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control secondsubjectca1"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control secondsubjectca2"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control secondsubjectexam"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter examination here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control secondhigh"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for second subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control secondlow"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for second subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control secondposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Third Subject Scores -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter Third Subject:</b></label>
+                      <input
+                        class="form-control thirdsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter third subject here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control thirdsubjectca1"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A Here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control thirdsubjectca2"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A Here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control thirdsubjectexam"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter examination Here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control thirdhigh"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for third subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control thirdlow"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for third subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control thirdposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fourth subject Scores -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter First Subject:</b></label>
+                      <input
+                        class="form-control fourthsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter fourth subject here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control fourthsubjectca1"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter Session Here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control fourthsubjectca2"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter Session Here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control fourthsubjectexam"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter Session Here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control fourthhigh"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for fourth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control fourthlow"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for fourth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control fourthposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fifth Subject Scores -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter First Subject:</b></label>
+                      <input
+                        class="form-control fifthsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter fifth subject here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control fifthsubjectca1"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control fifthsubjectca2"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control fifthsubjectexam"
+                            type="text"
+                            name=""
+                            id=""
+                            placeholder="Enter fifth examination here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control fifthhigh"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for fifth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control fifthlow"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for fifth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control fifthposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sixth Subject Score -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter First Subject:</b></label>
+                      <input
+                        class="form-control sixthsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter sixth subject here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control sixthsubjectca1"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control sixthsubjectca2"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control sixthsubjectexam"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter examination here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control sixthhigh"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for sixth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control sixthlow"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for sixth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control sixthposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Seventh Subject Scores -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter Seventh Subject:</b></label>
+                      <input
+                        class="form-control seventhsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter seventh subject here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control seventhsubjectca1"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control seventhsubjectca2"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control seventhsubjectexam"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter examination here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control seventhhigh"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for seventh subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control seventhlow"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for seventh subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control seventhposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Eighth Subject Scores -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter Eighth Subject:</b></label>
+                      <input
+                        class="form-control eighthsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter eighth subject here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control eighthsubjectca1"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control eighthsubjectca2"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control eighthsubjectexam"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter examination here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control eighthhigh"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for eighth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control eighthlow"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for eighth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control eighthposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- nineth Subject Score -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter nineth Subject:</b></label>
+                      <input
+                        class="form-control ninethsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter nineth subject here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control ninethsubjectca1"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A Here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control ninethsubjectca2"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control ninethsubjectexam"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter examination here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control ninethhigh"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for nineth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control ninethlow"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for nineth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control ninethposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- tenth subject Scores -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter tenth Subject:</b></label>
+                      <input
+                        class="form-control tenthsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter tenth subject Here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control tenthsubjectca1"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control tenthsubjectca2"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A Here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control tenthsubjectexam"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter examination Here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control tenthhigh"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for tenth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control tenthlow"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for tenth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control tenthposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Eleventh Subject Scores -->
+               <div>
+                <div class="row">
+                  <div class="col-md-5 mb-4">
+                    <label for=""><b>Enter Eleventh Subject:</b></label>
+                    <input
+                      class="form-control eleventhsubject"
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Enter eleventh subject Here"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-7 mb-4">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label for=""><b>First C.A Scores:</b></label>
+                        <input
+                          class="form-control eleventhsubjectca1"
+                          type="number"
+                          name=""
+                          id=""
+                          placeholder="Enter first C.A Here"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label for=""><b>Second C.A Scores:</b></label>
+                        <input
+                          class="form-control eleventhsubjectca2"
+                          type="number"
+                          name=""
+                          id=""
+                          placeholder="Enter second C.A here"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label for=""><b>Examination Scores:</b></label>
+                        <input
+                          class="form-control eleventhsubjectexam"
+                          type="number"
+                          name=""
+                          id=""
+                          placeholder="Enter examination here"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 mb-4">
+                    <label for=""><b>Enter Highest Scores:</b></label>
+                    <input
+                      class="form-control eleventhhigh"
+                      type="number"
+                      name=""
+                      id=""
+                      placeholder="Enter highest for eleventh subject"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <label for=""><b>Enter Lowest Scores:</b></label>
+                    <input
+                      class="form-control eleventhlow"
+                      type="number"
+                      name=""
+                      id=""
+                      placeholder="Enter lowest for eleventh subject"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <label for=""><b>Enter Position Obtained:</b></label>
+                    <input
+                      class="form-control eleventhposition"
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Enter student position in subject"
+                      required
+                    />
+                  </div>
+                </div>
+               </div>
+
+                <!-- Twelveth Subject Score -->
+                <div>
+                  <div class="row">
+                    <div class="col-md-5 mb-4">
+                      <label for=""><b>Enter Twelveth Subject:</b></label>
+                      <input
+                        class="form-control twelvethsubject"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter twelveth subject here"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-7 mb-4">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for=""><b>First C.A Scores:</b></label>
+                          <input
+                            class="form-control twelvethsubjectca1"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter first C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Second C.A Scores:</b></label>
+                          <input
+                            class="form-control twelvethsubjectca2"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter second C.A here"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label for=""><b>Examination Scores:</b></label>
+                          <input
+                            class="form-control twelvethsubjectexam"
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder="Enter examination Here"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Highest Scores:</b></label>
+                      <input
+                        class="form-control twelvethhigh"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter highest for twelveth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Lowest Scores:</b></label>
+                      <input
+                        class="form-control twelvethlow"
+                        type="number"
+                        name=""
+                        id=""
+                        placeholder="Enter lowest for twelveth subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label for=""><b>Enter Position Obtained:</b></label>
+                      <input
+                        class="form-control twelvethposition"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter student position in subject"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                  </div>
+                  <div class="col-md-6 mt-4">
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-dark">Save Changes</button>
+                    </div>
+                  </div>
+                </div>
+            </form>
+            <!-- form end -->
+          </section>
+          <footer class="text-center bg-dark text-light p-3">
+            Design With <i class="fa fa-heart text-danger"></i> by
+            <a
+              class="text-success"
+              target="_blank"
+              href="https://me.whatsapp.com/09136355360"
+              >DevYuny</a
+            >
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

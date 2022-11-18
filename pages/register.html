@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Report | Student Remarks</title>
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css" />
+    <script src="../dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../dist/js/script.js"></script>
+  </head>
+  <body onload="handleOnLoad(false)" class="dashboard">
+    <header
+      class="dashboard navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
+    >
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">SMS</a>
+      <button
+        class="navbar-toggler position-absolute d-md-none collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sidebarMenu"
+        aria-controls="sidebarMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-nav">
+        <div class="nav-item text-nowrap">
+          <a class="nav-link px-3" onclick="handleLogout()" href="#">Logout</a>
+        </div>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse show"
+        >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-light"
+                  aria-current="page"
+                  href="dashboard.html"
+                >
+                  <span data-feather="home"></span>
+                  Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./studdetails.html">
+                  <span data-feather="file"></span>
+                  Student Record
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./studmark.html">
+                  <span data-feather="shopping-cart"></span>
+                  Student Marks
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./physkills.html">
+                  <span data-feather="users"></span>
+                  Physical Skills
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">
+                  <span data-feather="bar-chart-2"></span>
+                  General Remark
+                </a>
+              </li>
+            </ul>
+
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+            >
+              <span>Profile?</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-light"
+                  href="#"
+                >
+                  <span data-feather="file-text"></span>
+                  Changes profile
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-light"
+                  onclick="handleLogout()"
+                  href="#"
+                >
+                  <span data-feather="file-text"></span>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main class="col-md-9 container mt-5">
+          <div class="alert alert-success text-center message">
+            Skills And Behavior Set Succesfully!!!
+          </div>
+          <section class="shadow p-5 mb-5">
+            <!-- Form Beginning -->
+            <form onsubmit="setAuth()" class="card-body">
+              <input type="hidden" name="" class="isMessage" value="true" />
+              <h3 class="">Change Login Settings</h3>
+              <div class="bg-dark pt-1 mb-4"></div>
+              <div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <label for=""><b>Change Email:</b></label>
+                    <input
+                      class="form-control email"
+                      type="email"
+                      name=""
+                      placeholder="Enter your email"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <label for=""><b>Change Password:</b></label>
+                    <input
+                      class="form-control password"
+                      type="password"
+                      name=""
+                      placeholder="Enter your password"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4"></div>
+                  <div class="col-md-6 d-grid gap-2">
+                    <button class="btn btn-dark">Save Changes</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- form end -->
+          </section>
+          <footer class="text-center bg-dark text-light p-3">
+            Design With <i class="fa fa-heart text-danger"></i> by
+            <a
+              class="text-success"
+              target="_blank"
+              href="https://me.whatsapp.com/09136355360"
+              >DevYuny</a
+            >
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
