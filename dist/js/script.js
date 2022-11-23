@@ -2,7 +2,7 @@
  * Login And Password => Setting Login and Password
  */
 
-let setAuth = () => {
+let Register = () => {
   localStorage.setItem(
     "loginEmail",
     JSON.stringify(document.querySelector(".email").value)
@@ -11,12 +11,6 @@ let setAuth = () => {
     "loginPassword",
     JSON.stringify(document.querySelector(".password").value)
   );
-  document.querySelector(".email").value = JSON.parse(
-    localStorage.getItem("loginEmail")
-  );
-  document.querySelector(".password").value = JSON.parse(
-    localStorage.getItem("loginPassword")
-  );
 };
 
 /*
@@ -24,21 +18,23 @@ let setAuth = () => {
  */
 document.addEventListener("submit", (e) => {
   // getting input items
-  const email = document.querySelector(".email").value;
-  const password = document.querySelector(".password").value;
+  if (document.querySelector(".email") && document.querySelector(".password")) {
+    const email = document.querySelector(".email").value;
+    const password = document.querySelector(".password").value;
 
-  const loginEmail = JSON.parse(localStorage.getItem("loginEmail"));
-  const loginPassword = JSON.parse(localStorage.getItem("loginPassword"));
+    const loginEmail = JSON.parse(localStorage.getItem("loginEmail"));
+    const loginPassword = JSON.parse(localStorage.getItem("loginPassword"));
 
-  // comparing values
-  if (email === "example@eg.com" && password === "password") {
-    sessionStorage.setItem("isLogin", true);
-    window.location.href = "../../pages/dashboard.html";
-  } else if (loginEmail === email && loginPassword === password) {
-    sessionStorage.setItem("isLogin", true);
-    window.location.href = "../../pages/dashboard.html";
-  } else {
-    alert("Incorrect Email or password!!!");
+    // comparing values
+    if (email === "example@eg.com" && password === "password") {
+      sessionStorage.setItem("isLogin", true);
+      window.location.href = "../../pages/dashboard.html";
+    } else if (loginEmail === email && loginPassword === password) {
+      sessionStorage.setItem("isLogin", true);
+      window.location.href = "../../pages/dashboard.html";
+    } else {
+      alert("Incorrect Email or password!!!");
+    }
   }
   e.preventDefault();
 });
@@ -67,6 +63,22 @@ const handleMessage = (messageStatus) => {
   }
 };
 
+let getAuth = (loadStatus) => {
+  if (!loadStatus) {
+    if (
+      document.querySelector(".email") &&
+      document.querySelector(".password")
+    ) {
+      document.querySelector(".email").value = JSON.parse(
+        localStorage.getItem("loginEmail")
+      );
+      document.querySelector(".password").value = JSON.parse(
+        localStorage.getItem("loginPassword")
+      );
+    }
+  }
+};
+
 /*
  * Onload Dialog
  */
@@ -79,13 +91,14 @@ const handleOnLoad = (loadState, messageState) => {
   resultLoad(loadState);
   handleMessage(messageState);
   handleISSet();
+  getAuth(loadState);
 };
 
 /*
  * Student Records => Dealing With Student Records
  */
 
-const handleSettingSubmit = () => {
+const handleSettingSubmit = (isSet) => {
   const school = () => {
     if (document.querySelector(".school").value === "1") {
       return "Secondary";
@@ -111,12 +124,17 @@ const handleSettingSubmit = () => {
     studentSchool: school(),
     studentGender: gender(),
   };
+
   // Setting Student Class Values to LocalStorage
-  localStorage.setItem("studentData", JSON.stringify(studentData));
+  this.localStorage.setItem("studentData", JSON.stringify(studentData));
+
+  // Setting isSet
+  this.localStorage.setItem("isSet", isSet);
 
   // Redirection to General Settings
 
-  window.location.href = "studdetails.html";
+  window.location.href = "studmark.html";
+  this.preventDefault();
 };
 
 /*
@@ -143,12 +161,14 @@ const handleDashboardSubmit = (isSet) => {
     },
   };
 
-  localStorage.setItem("set", isSet);
   // Setting School Session Values to LocalStorage
-  localStorage.setItem("settingsData", JSON.stringify(settingsData));
+  this.localStorage.setItem("settingsData", JSON.stringify(settingsData));
+
+  // Setting isSet
+  this.sessionStorage.setItem("set", isSet);
 
   // Redirection to Student Marks
-  window.location.href = "studmark.html";
+  window.location.href = "studdetails.html";
 };
 
 /*
@@ -266,18 +286,22 @@ const handleMarksSubmit = () => {
       lowestscore: document.querySelector(".twelvethlow").value,
     }),
   ];
+
   // Setting School Session Values to LocalStorage
-  window.localStorage.setItem("studentScores", JSON.stringify(studentScores));
+  this.localStorage.setItem("studentScores", JSON.stringify(studentScores));
+
+  // Setting isSet
+  this.sessionStorage.setItem("isSet", isSet);
 
   // Redirection to Student Marks
-  window.location.href = "studmark.html";
+  window.location.href = "physkills.html";
 };
 
 /*
  * Skills and Behavior => Dealing With Student Skills and Behavior
  */
 
-const handleSkillsSubmit = () => {
+const handleSkillsSubmit = (isSet) => {
   let skills = {
     fluency: document.querySelector(".fluence").value,
     tools: document.querySelector(".tool").value,
@@ -292,7 +316,10 @@ const handleSkillsSubmit = () => {
   };
 
   // Setting School Session Values to LocalStorage
-  window.localStorage.setItem("skills", JSON.stringify(skills));
+  this.localStorage.setItem("skills", JSON.stringify(skills));
+
+  // Setting isSet
+  this.sessionStorage.setItem("set", isSet);
 
   // Redirection to Remarks
   window.location.href = "remark.html";
@@ -311,6 +338,9 @@ const handleRemarkSubmit = () => {
 
   // Redirection to Result
   window.location.href = "result.html";
+
+  // console.log(window.location.href = "result.html");
+  // this.preventDefault();
 };
 
 /*
