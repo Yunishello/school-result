@@ -11,7 +11,6 @@ let setAuth = () => {
     "loginPassword",
     JSON.stringify(document.querySelector(".password").value)
   );
-
   document.querySelector(".email").value = JSON.parse(
     localStorage.getItem("loginEmail")
   );
@@ -23,23 +22,19 @@ let setAuth = () => {
 /*
  * Dealing With Authentication
  */
-
 document.addEventListener("submit", (e) => {
   // getting input items
   const email = document.querySelector(".email").value;
   const password = document.querySelector(".password").value;
 
-  // const loginEmail = JSON.parse(localStorage.getItem("loginEmail"));
-  // const loginPassword = JSON.parse(localStorage.getItem("loginPassword"));
-
-  // if (loginEmail === email || loginEmail === "example@eg.com") {
-  //   console.log("success");
-  // }else {
-  //   console.log("failed");
-  // }
+  const loginEmail = JSON.parse(localStorage.getItem("loginEmail"));
+  const loginPassword = JSON.parse(localStorage.getItem("loginPassword"));
 
   // comparing values
   if (email === "example@eg.com" && password === "password") {
+    sessionStorage.setItem("isLogin", true);
+    window.location.href = "../../pages/dashboard.html";
+  } else if (loginEmail === email && loginPassword === password) {
     sessionStorage.setItem("isLogin", true);
     window.location.href = "../../pages/dashboard.html";
   } else {
